@@ -20,7 +20,7 @@
                                                 <span aria-hidden="true">{% block table.asc_icon %}&uarr;{% endblock table.asc_icon %}</span>
                                             {% endif %}
                                         {% else %}
-                                            <span aria-hidden="true">{% block table.desc_icon %}&ReverseUpEquilibrium;{% endblock table.desc_icon %}</span>
+                                            <span aria-hidden="true">{% block table.orderable_icon %}&ReverseUpEquilibrium;{% endblock table.orderable_icon %}</span>
                                         {% endif %}
                                             <a href="{% querystring table.prefixed_order_by_field=column.order_by_alias.next %}">{{ column.header }}</a>
                                     {% else %}
