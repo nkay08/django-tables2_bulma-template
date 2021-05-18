@@ -1,6 +1,6 @@
 {% load django_tables2 %}
 {% load i18n %}
-{% load utils_extras %}
+{% load django_tables2_bulma_template_extras %}
 {% block table-wrapper %}
     <div class="container">
         {% block table %}
@@ -71,14 +71,14 @@
                         {% block pagination.previous %}
                             <a class="pagination-previous" href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}">
                                 <span aria-hidden="true">&laquo;</span>
-                                {% trans 'previous' %}
+<!--                                {% trans 'Previous' %}-->
                             </a>
                         {% endblock pagination.previous %}
                     {% endif %}
                     {% if table.page.has_next %}
                         {% block pagination.next %}
                             <a class="pagination-next" href="{% querystring table.prefixed_page_field=table.page.next_page_number %}">
-                                {% trans 'next' %}
+<!--                                {% trans 'Next' %}-->
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         {% endblock pagination.next %}

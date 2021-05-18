@@ -1,0 +1,18 @@
+from django import template
+from django.contrib.sites.models import Site
+from django.conf import settings
+
+
+register = template.Library()
+
+@register.simple_tag()
+def is_descending(obj):
+    import django_tables2
+    if obj is not None:
+        if type(obj) == django_tables2.utils.OrderByTuple:
+            return obj[0].is_descending
+            if len(obj) > 0:
+                if obj[0] == "-":
+                    return True
+
+    return False
