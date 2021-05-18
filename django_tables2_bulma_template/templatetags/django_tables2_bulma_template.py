@@ -1,7 +1,4 @@
 from django import template
-from django.contrib.sites.models import Site
-from django.conf import settings
-
 
 register = template.Library()
 
