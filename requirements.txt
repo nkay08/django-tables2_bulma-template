@@ -1,0 +1,2 @@
+# dependencies
+django-tables2>=2.0.0
