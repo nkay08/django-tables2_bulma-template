@@ -20,6 +20,9 @@ if sys.argv[-1] == "publish":
     print("  git push --tags")
     sys.exit()
 
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
 setup(
     name="django-tables2_bulma-template",
     version=django_tables2_bulma_template.__version__,
@@ -52,6 +55,6 @@ setup(
     packages=find_packages(exclude=["docs"]),
     include_package_data=True,
     python_requires=">=3.5",
-    install_requires=["django-tables2>=2.0.0"],
+    install_requires=requirements,
     zip_safe=False,
 )
