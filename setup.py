@@ -24,7 +24,7 @@ setup(
     name="django-tables2_bulma-template",
     version=django_tables2_bulma_template.__version__,
     description="A bulma template for django-tables2",
-    long_description=open("README.rst").read(),
+    long_description=open("README.md").read(),
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Environment :: Web Environment",
