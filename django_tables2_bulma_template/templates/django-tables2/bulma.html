@@ -8,8 +8,10 @@
                 {% block table.thead %}
                     {% if table.show_header %}
                         <thead {% render_attrs table.attrs.thead class="" %}>
+                        {% block table.thead.row %}
                             <tr>
                             {% for column in table.columns %}
+                                {% block table.thead.th %}
                                 <th {% render_attrs column.attrs.th class="" %}>
                                     {% if column.orderable %}
                                         {% if column.is_ordered %}
@@ -27,8 +29,10 @@
                                         {{ column.header }}
                                     {% endif %}
                                 </th>
+                                {% endblock table.thead.th %}
                             {% endfor %}
                             </tr>
+                        {% endblock table.thead.row %}
                         </thead>
                     {% endif %}
                 {% endblock table.thead %}
@@ -38,7 +42,9 @@
                     {% block table.tbody.row %}
                     <tr {{ row.attrs.as_html }}>
                         {% for column, cell in row.items %}
+                            {% block table.tbody.td %}
                             <td {{ column.attrs.td.as_html }}>{% if column.localize == None %}{{ cell }}{% else %}{% if column.localize %}{{ cell|localize }}{% else %}{{ cell|unlocalize }}{% endif %}{% endif %}</td>
+                            {% endblock table.tbody.td %}
                         {% endfor %}
                     </tr>
                     {% endblock table.tbody.row %}
@@ -54,11 +60,15 @@
             {% block table.tfoot %}
                 {% if table.has_footer %}
                 <tfoot {{ table.attrs.tfoot.as_html }}>
+                    {% block table.tfoot.row %}
                     <tr>
                     {% for column in table.columns %}
+                        {% block table.tfoot.td %}
                         <td {{ column.attrs.tf.as_html }}>{{ column.footer }}</td>
+                        {% block table.tfoot.td %}
                     {% endfor %}
                     </tr>
+                    {% endblock table.tfoot.row %}
                 </tfoot>
                 {% endif %}
             {% endblock table.tfoot %}
@@ -90,7 +100,7 @@
                                 <li>
                                     <a class="pagination-link
                                         {% if p == table.page.number %}is-current{% endif %}"
-                                        aria-label="Page {{ p }}"
+                                        aria-label="Page {{ p }}"block
                                         {% if p == table.page.number %}aria-current="page"{% endif %}
                                         {% if p == table.page.number %}
                                             href="#"
