@@ -65,7 +65,7 @@
                     {% for column in table.columns %}
                         {% block table.tfoot.td %}
                         <td {{ column.attrs.tf.as_html }}>{{ column.footer }}</td>
-                        {% block table.tfoot.td %}
+                        {% endblock table.tfoot.td %}
                     {% endfor %}
                     </tr>
                     {% endblock table.tfoot.row %}
