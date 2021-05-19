@@ -76,9 +76,9 @@
         {% endblock table %}
         {% block pagination %}
             {% if table.page and table.paginator.num_pages > 1 %}
-                <nav class="pagination" role="navigation" aria-label="pagination">
+                <nav class="pagination is-justify-content-flex-end" role="navigation" aria-label="pagination">
                     {% block pagination.previous %}
-                        <a class="pagination-previous
+                        <a class="pagination-previous is-flex-grow-0
                            {% if table.page.has_previous %}
                            "
                            href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}"
@@ -96,7 +96,7 @@
                         </a>
                     {% endblock pagination.previous %}
                     {% block pagination.next %}
-                        <a class="pagination-next
+                        <a class="pagination-next is-flex-grow-0
                            {% if table.page.has_next %}
                            "
                            href="{% querystring table.prefixed_page_field=table.page.next_page_number %}"
@@ -115,7 +115,7 @@
                     {% endblock pagination.next %}
                     {% if table.page.has_previous or table.page.has_next %}
                         {% block pagination.range %}
-                            <ul class="pagination-list" style="order:2;">
+                            <ul class="pagination-list is-flex-grow-0" style="order:2;">
                             {% for p in table.page|table_page_range:table.paginator %}
                                 <li>
                                     <a class="pagination-link
