@@ -54,7 +54,7 @@ setup(
     license="MIT",
     packages=find_packages(exclude=["docs"]),
     include_package_data=True,
-    python_requires=">=3.5",
+    python_requires=">=3.6",
     install_requires=requirements,
     zip_safe=False,
 )
