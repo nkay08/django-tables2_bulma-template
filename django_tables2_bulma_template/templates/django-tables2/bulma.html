@@ -77,25 +77,45 @@
         {% block pagination %}
             {% if table.page and table.paginator.num_pages > 1 %}
                 <nav class="pagination" role="navigation" aria-label="pagination">
-                    {% if table.page.has_previous %}
-                        {% block pagination.previous %}
-                            <a class="pagination-previous" href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}">
-                                <span aria-hidden="true">&laquo;</span>
+                    {% block pagination.previous %}
+                        <a class="pagination-previous
+                           {% if table.page.has_previous %}
+                           "
+                           href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}"
+                           {% else %}
+                           is-hidden-mobile"
+                           href="#"
+                           disabled
+                           {% endif %}
+                            style="order:1;"
+                            >
+                            {% block pagination.previous.text %}
+                            <span aria-hidden="true">&laquo;</span>
 <!--                                {% trans 'Previous' %}-->
-                            </a>
-                        {% endblock pagination.previous %}
-                    {% endif %}
-                    {% if table.page.has_next %}
-                        {% block pagination.next %}
-                            <a class="pagination-next" href="{% querystring table.prefixed_page_field=table.page.next_page_number %}">
+                            {% endblock pagination.previous.text  %}
+                        </a>
+                    {% endblock pagination.previous %}
+                    {% block pagination.next %}
+                        <a class="pagination-next
+                           {% if table.page.has_next %}
+                           "
+                           href="{% querystring table.prefixed_page_field=table.page.next_page_number %}"
+                           {% else %}
+                            is-hidden-mobile"
+                           href="#"
+                           disabled
+                           {% endif %}
+                            style="order:3;"
+                            >
+                            {% block pagination.next.text %}
+                            <span aria-hidden="true">&raquo;</span>
 <!--                                {% trans 'Next' %}-->
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        {% endblock pagination.next %}
-                    {% endif %}
+                            {% endblock pagination.next.text  %}
+                        </a>
+                    {% endblock pagination.next %}
                     {% if table.page.has_previous or table.page.has_next %}
                         {% block pagination.range %}
-                            <ul class="pagination-list">
+                            <ul class="pagination-list" style="order:2;">
                             {% for p in table.page|table_page_range:table.paginator %}
                                 <li>
                                     <a class="pagination-link

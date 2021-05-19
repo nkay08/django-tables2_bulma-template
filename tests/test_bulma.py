@@ -3,6 +3,13 @@ from django.test import TestCase, RequestFactory
 
 TEST_TABLE_DATA = [{"name": y} for y in range(100)]
 
+_html_parser = None
+
+
+def validate_html(html):
+    from bs4 import BeautifulSoup
+    return bool(BeautifulSoup(html, "html.parser").find())
+
 
 class BulmaTableTest(TestCase):
 
@@ -34,3 +41,7 @@ class BulmaTableTest(TestCase):
         self.table.paginate(page=1, per_page=len(self.test_table_data))
         html = self.table.as_html(self.request)
         self.assertNotIn('pagination', html)
+
+    def test_valid_html(self):
+        html = self.table.as_html(self.request)
+        self.assertTrue(validate_html(html))

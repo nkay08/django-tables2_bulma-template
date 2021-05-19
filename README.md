@@ -44,6 +44,8 @@ Supported blocks you can override:
 - `table.tfoot.row`: Footer rows
 - `table.tfoot.td`: Footer cells
 - `pagination`: Pagination for this table
-- `pagination.previous`: Text/Icons shown to navigate to previous page
-- `pagination.next`: Text/Icons shown to navigate to next page
+- `pagination.previous`: Customize html to shown to navigate to previous page
+- `pagination.previous.text`: Text/Icons shown to navigate to previous page
+- `pagination.next`: Customize html to shown to navigate to next page
+- `pagination.next.text`: Text/Icons shown to navigate to next page
 - `pagination.range`: Range of pages shown in pagination
