@@ -2,6 +2,8 @@ import os
 
 BASE_DIR = os.path.dirname(__file__)
 
+DEBUG = True
+
 INSTALLED_APPS = (
     "django.contrib.auth",
     "django.contrib.sessions",
@@ -10,7 +12,10 @@ INSTALLED_APPS = (
     "django.contrib.admin",
     "django_tables2",
     "django_tables2_bulma_template",
+    "tests",
 )
+
+ALLOWED_HOSTS = []
 
 DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}}
 
@@ -52,6 +57,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.request",
                 "django.template.context_processors.request",
             ],
             "debug": TEMPLATE_DEBUG,

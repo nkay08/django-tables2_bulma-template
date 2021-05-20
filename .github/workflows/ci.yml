@@ -40,7 +40,7 @@ jobs:
           pip install -e .
       - name: Test with django tests
         run: |
-          python test_manage.py test tests
+          python manage.py test tests
 
   publish:
     runs-on: ubuntu-latest
